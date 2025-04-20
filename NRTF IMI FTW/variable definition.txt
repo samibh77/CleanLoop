@@ -1,0 +1,6 @@
+Exhaust_CO2_Concentration (%)   	Percentage of CO₂ in flue gas	                18-22%	                    NDIR CO₂ sensor
+Flue_Gas_Flow_Rate (m³/h)       	Volume of exhaust gas from kiln	                50,000 m³/h	                Flow meter
+Amine_Temperature (°C)	            Temperature of amine solvent (MEA/PZ blend)	    40-60°C	                    PT100 probe
+Absorber_Pressure (bar)	            Pressure inside the absorption tower	        1.2-1.5 bar	                Pressure transducer
+Steam_Energy_Price (TND/kWh)	    Cost of steam for amine regeneration	        0.45 TND (off-peak STEG)	Utility API/plant logs
+Ambient_Humidity (%)	            Air moisture affecting cooling efficiency	    60% (coastal plants)	    On-site weather station
