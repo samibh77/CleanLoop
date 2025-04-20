@@ -21,5 +21,5 @@ CleanLoop is an integrated hardware-software platform designed to monitor, filte
 
 ---
 
-## 🖥️ System Architecture
+
 
