@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calendar - CO₂ Storage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 30px;
+    }
+
+    h1 {
+      color: #033173f3;
+    }
+
+    .calendar-container {
+      max-width: 600px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="date"] {
+      width: 100%;
+      padding: 15px;
+      font-size: 18px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .history {
+      margin-top: 30px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .history h2 {
+      margin-top: 0;
+    }
+
+    .history p {
+      font-size: 16px;
+      margin: 8px 0;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #033173f3;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📅 CO₂ Storage - Calendar</h1>
+
+  <div class="calendar-container">
+    <label for="calendar">Pick a date:</label>
+    <input type="date" id="calendar" min="2021-01-01">
+    <div class="history" id="history" style="display: none;">
+      <h2>Historical Data</h2>
+      <p><strong>Temperature:</strong> <span id="hist-temp"></span> °C</p>
+      <p><strong>Humidity:</strong> <span id="hist-hum"></span> %</p>
+      <p><strong>Pressure:</strong> <span id="hist-press"></span> bar</p>
+      <p><strong>CO₂ Level:</strong> <span id="hist-co2"></span> ppm</p>
+    </div>
+    <a href="index.html">← Back to Dashboard</a>
+  </div>
+
+  <script>
+    const calendar = document.getElementById('calendar');
+    const historyBox = document.getElementById('history');
+
+    calendar.addEventListener('change', () => {
+      const temp = (22 + Math.random() * 4).toFixed(1);      // 22 - 26 °C
+      const hum = (40 + Math.random() * 15).toFixed(1);       // 40 - 55 %
+      const press = (7 + Math.random()).toFixed(2);           // 7 - 8 bar
+      const co2 = (500 + Math.random() * 100).toFixed(0);     // 500 - 600 ppm
+
+      document.getElementById('hist-temp').textContent = temp;
+      document.getElementById('hist-hum').textContent = hum;
+      document.getElementById('hist-press').textContent = press;
+      document.getElementById('hist-co2').textContent = co2;
+
+      historyBox.style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>

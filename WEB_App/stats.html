@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CO₂ Statistics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6f2ff;
+      margin: 0;
+      padding: 30px;
+    }
+
+    h1 {
+      color: #033173;
+    }
+
+    .stats-container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .summary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      flex: 1;
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+      min-width: 150px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: #666;
+    }
+
+    .card .value {
+      font-size: 24px;
+      font-weight: bold;
+      color: #033173;
+    }
+
+    canvas {
+      background: #fff;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #033173;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📊 CO₂ Storage - Statistics</h1>
+
+  <div class="stats-container">
+
+    <div class="summary">
+      <div class="card">
+        <h3>Avg CO₂ Level</h3>
+        <div class="value">564 ppm</div>
+      </div>
+      <div class="card">
+        <h3>Avg Temp</h3>
+        <div class="value">24.7 °C</div>
+      </div>
+      <div class="card">
+        <h3>Avg Humidity</h3>
+        <div class="value">46.1 %</div>
+      </div>
+      <div class="card">
+        <h3>Avg Pressure</h3>
+        <div class="value">7.6 bar</div>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom: 10px;">CO₂ Level Over Time (Simulated)</h3>
+    <canvas id="co2Chart" height="200"></canvas>
+
+    <a href="index.html">← Back to Dashboard</a>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('co2Chart').getContext('2d');
+    const labels = ["8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00"];
+    const co2Data = Array.from({ length: labels.length }, () =>
+      (500 + Math.random() * 100).toFixed(0)
+    );
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'CO₂ (ppm)',
+          data: co2Data,
+          backgroundColor: '#033173',
+          borderColor: '#033173',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            suggestedMin: 400,
+            suggestedMax: 700
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
